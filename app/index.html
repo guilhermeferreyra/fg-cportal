@@ -1,19 +1,55 @@
 <html>
+<head>
+    <style>
+        body {
+            background-image: url('./assests/background.JPEG');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
 <body>
 <script>
-	// https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
-	//grab params from query string
-	const urlParams = new URLSearchParams(window.location.search);
-	const postParam = urlParams.get('post');
-	const magicParam = urlParams.get('magic');
-	
-	window.onload = function() {
-		// set action URL
+    // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+    //grab params from query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const postParam = urlParams.get('post');
+    const magicParam = urlParams.get('magic');
+    
+    window.onload = function() {
+        // set action URL
         document.authlogin.action = get_action();
-		// put post URL into callback URL box
-		document.getElementById("callbackurl").value = postParam;
-		document.getElementById("magic").value = magicParam;
-		
+        // put post URL into callback URL box
+        document.getElementById("callbackurl").value = postParam;
+        document.getElementById("magic").value = magicParam;    
+        
     }
 
     function get_action() {
@@ -22,8 +58,8 @@
 </script>
 
 <form action="replaceme"  accept-charset="UTF-8" method="post" name="authlogin">
-Callback URL: <input type="text" name="post" value="replaceme" id="callbackurl" size=50 disabled><br>
-Magic: <input type="text" name="magic" value="replaceme" id="magic" readonly<br>
+<!-- Callback URL: <input type="text" name="post" value="replaceme" id="callbackurl" size=50 disabled><br> -->
+<!-- Magic: <input type="text" name="magic" value="replaceme" id="magic" readonly><br> -->
 Username: <input type="text" name="username"><br>
 Password: <input type="text" name="password"><br>
 <input type="submit" value="OK">
